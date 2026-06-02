@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Voting Results</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>📊 Live Voting Results</h1>
+
+    <div class="result-card">
+
+        <h3>🍛 Amala & Gbegiri</h3>
+
+        <p>{{ amala_votes }} votes</p>
+
+        <div class="bar">
+            <div class="bar-fill amala-fill"
+                 style="width: {{ amala_percent }}%">
+            </div>
+        </div>
+
+        <strong>{{ amala_percent }}%</strong>
+
+    </div>
+
+    <div class="result-card">
+
+        <h3>🥬 Afang & Native Fufu</h3>
+
+        <p>{{ afang_votes }} votes</p>
+
+        <div class="bar">
+            <div class="bar-fill afang-fill"
+                 style="width: {{ afang_percent }}%">
+            </div>
+        </div>
+
+        <strong>{{ afang_percent }}%</strong>
+
+    </div>
+
+    <a href="/" class="vote-again">
+        Vote Again
+    </a>
+
+</div>
+
+</body>
+</html>

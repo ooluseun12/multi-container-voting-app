@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Nigerian Food Battle</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🍲 Nigerian Food Battle</h1>
+
+    <p class="subtitle">
+        Vote for your favourite meal combination
+    </p>
+
+    <div class="cards">
+
+        <div class="card amala">
+
+            <h2>🍛 Amala + Gbegiri</h2>
+
+            <p>
+                Rich Yoruba delicacy with smooth bean soup.
+            </p>
+
+            <form action="/vote" method="POST">
+                <input type="hidden"
+                       name="food_option"
+                       value="amala">
+
+                <button type="submit">
+                    Vote Amala
+                </button>
+            </form>
+
+        </div>
+
+        <div class="card afang">
+
+            <h2>🥬 Afang + Native Fufu</h2>
+
+            <p>
+                Delicious vegetable soup packed with flavor.
+            </p>
+
+            <form action="/vote" method="POST">
+                <input type="hidden"
+                       name="food_option"
+                       value="afang">
+
+                <button type="submit">
+                    Vote Afang
+                </button>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
