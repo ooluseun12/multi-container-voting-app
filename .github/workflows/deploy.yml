@@ -6,35 +6,21 @@ on:
       - main
 
 jobs:
-
   deploy:
-
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Docker Compose Validation
-        run: docker compose config
-
-      - name: SSH Deploy
-
-        uses: appleboy/ssh-action@v1.0.3
-
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
         with:
-
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USER }}
-          key: ${{ secrets.EC2_PRIVATE_KEY }}
-
+          key: ${{ secrets.EC2_SSH_KEY }}
           script: |
-
-            cd /home/ubuntu/voting-app
-
+            cd ~/multi-container-voting-app
             git pull origin main
-
-            docker compose down
-
-            docker compose up -d --build
+            docker-compose down
+            docker-compose up -d --build
