@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+
+  db:
+    image: postgres:16
+
+    container_name: postgres_db
+
+    restart: always
+
+    environment:
+      POSTGRES_DB: foodvotes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  vote:
+    build:
+      context: .
+      dockerfile: Dockerfile.vote
+
+    container_name: flask_vote_app
+
+    restart: always
+
+    ports:
+      - "5000:5000"
+
+    depends_on:
+      - db
+
+    environment:
+      DB_HOST: db
+      POSTGRES_DB: foodvotes
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  worker:
+    build:
+      context: .
+      dockerfile: Dockerfile.worker
+
+    container_name: vote_worker
+
+    restart: always
+
+    depends_on:
+      - db
+
+volumes:
+  postgres_data:

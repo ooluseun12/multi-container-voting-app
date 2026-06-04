@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS votes (
+    id SERIAL PRIMARY KEY,
+    food_option VARCHAR(100)
+);
