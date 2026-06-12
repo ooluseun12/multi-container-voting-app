@@ -30,9 +30,9 @@ This is a multi-container web application that allows users to vote between two 
 | Name | Role |
 |------|------|
 | Folarin Israel | Team Lead / DevOps |
-| Team Member 1 | Frontend Developer |
-| Team Member 2 | Backend / Worker Developer |
-| Team Member 3 | Database Engineer / QA |
+| Maacah Uko | Frontend Developer |
+| Maacah Uko | Backend / Worker Developer |
+| Folarin Israel| Database Engineer / QA |
 
 ---
 
